@@ -34,17 +34,18 @@ void return_car();
 //function to print introductory message
 void welcome()
 {
-   printf("\n                       :::::::::::::::::::::::::::::::::::::");
-   printf("\n                       ::*********************************::");
-   printf("\n                       ::*********************************::");
-   printf("\n                       ::*********************************::");
-   printf("\n                       ::******      WELCOME TO     ******::");
-   printf("\n                       ::******                     ******::");
-   printf("\n                       ::******    APNI       CAR   ******::");
-   printf("\n                       ::*********************************::");
-   printf("\n                       ::*********************************::");
-   printf("\n                       ::*********************************::");
-   printf("\n                       :::::::::::::::::::::::::::::::::::::\n\n");
+   printf("\n                     ::::::::::::::::::::::::::::::::::::::::::::::");
+   printf("\n                     ::          ________________________        ::");  
+   printf("\n                     ::         /************************\\      ::");
+   printf("\n                     ::        /**************************\\     ::");
+   printf("\n                     ::  _____/****************************|***  ::");
+   printf("\n                     :: |********|      WELCOME      |*****|***  ::");
+   printf("\n                     :: |********|         TO        |*****|***  ::");
+   printf("\n                     :: |********|    APNA    CAR    |*****|     ::");
+   printf("\n                     :: \\********************************./     ::");
+   printf("\n                     ::    ******                 ******         ::");
+   printf("\n                     ::     ****                   ****          ::");
+   printf("\n                     ::::::::::::::::::::::::::::::::::::::::::::::\n\n");
    printf("\n\n                           Press any key to continue\n");
    getch();
    system("cls");
@@ -159,8 +160,10 @@ void car(char arr[])
     int i;
     system("cls");
 	printf("                     Welcome for car booking \n\n                               Hope you will have a nice journey\n\n\n\n");
-	char cars[9][20]={"Maruti 800","Ritz","Alto K10","Hyundai i20","Ford EcoSport","Tata Nano","Tata Indigo","Bolero","Tata Sumo"},p;
-	int price[9]={400,500,1000,221,5456,5421,5456,6565,5446};
+	char cars[9][20]={"Maruti Brezza","Hyundai Creta","Alto K10     ","Hyundai i20  ","Ford EcoSport","Volkswagon Polo","Tata Indigo  ","Mahindra Xuv500","Tata Hexa"},p;
+	int price[9]={15,17,12,13,16,14,14,19,20};
+	    printf("                        MODEL             RATE(per Km)  \n");
+	    printf("\n                ======================================\n");
 	for(i=0;i<9;i++)
     {
         printf("               %d.         %s         %d\n",i+1,cars[i],price[i]);
@@ -194,19 +197,61 @@ void car(char arr[])
 
 void function(char arr[],int a)
 {
-	int b;
+	int b,k;
 	char c;
    	system("cls");
-    printf("You have selected %s as your car which has a price of %d\n\n\n",arr,a);
-    printf("\nEnter the number of days you will be using this for ::::  ");
+    printf("You have selected %s as your car which has a price (per Km) of %d\n\n\n",arr,a);
+    printf("\nEnter the number of days you will be using this for ::::   ");
     scanf("%d",&b);
-    printf("\n\n\n\n\nThe total cost is :::::%d",b*a);
-    printf("\n\n\nDo you want a driver(y/n).");
+    printf("1.   upto  120 kms\n");
+    printf("2.   upto  360 kms\n");
+    printf("3.   upto  600 kms\n");
+    printf("4.   beyond  600 kms\n");
+    printf("\nselect the range of kms you want included in your service : \nEnter your choice : ");
+    scanf("%d",&k);
+    static int total;
+    int J;
+    switch(k)
+      {  
+        case 1: total= b*a*1*120;
+                printf("\n\n\n\n\nThe total cost is :::::  %d",b*a*1*120);
+                break;
+        
+        case 2: total= b*a*0.8*360;
+                printf("\n\n\n\n\nThe total cost is :::::  %d",b*a*0.8*360);
+                break;
+        
+        case 3: total= b*a*0.67*600;
+                printf("\n\n\n\n\nThe total cost is :::::  %d",b*a*0.67*600);
+                break;
+        
+        case 4: printf("\n\n\n\n\nFor Journies more than 600kms ,contact us through our customer care number :1800 201 3636\nor mail us at: apni_car.custcare@gmail.com \n");
+                printf("1. Exit Website\n2.   Start another booking!\n\n");
+                scanf("%d",&J);
+                switch(J){  
+                          case 1: printf("\nHope you liked our services. Please Visit Us Again.  :) <3\n") ;
+						          return ;
+                                  break;
+                                  
+                	      case 2: printf("\n\n=============================================================================================================================\n\n");
+						          return userlogin(); 
+                	              break;
+			             };
+                
+				break;
+
+        default: printf("\n\n\nChoose appropiate options only. Try again :( ");
+                 break; 
+      }
+    int T= total;
+
+    printf("\n\n\n\n\nThe total cost is :::::  %d",1*total);
+    printf("\n\n\n     Do you want a driver(y/n).");
     c=getch();
     if(c=='y'||'Y')
     {
-        printf("\n\n\n\nNow the revised cost is :::::%f",1.25*a*b);
-        printf("\n\n\nYou have booked your car");
+        printf("\n\n\n\nNow the revised cost is :::::  %f",1.20*total);
+        printf("\n\n\nCongratulations You have booked your car");
         printf("\n\n\n\nNow you can pay your bill by visiting this url 'www.apni car/bill payment'");
     }
     if(c=='n'||c=='N'){
@@ -338,9 +383,8 @@ void profile(char arr[])
 //driver function
 int main()
 {
-  	welcome();
-  	printf("Press any key to continue...");
-  	getch();
-  	system("cls");
+  	welcome();    
+  	
+    system("cls");
   	userlogin();
 }
