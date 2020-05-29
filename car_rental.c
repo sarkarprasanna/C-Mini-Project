@@ -54,7 +54,7 @@ void welcome()
    printf("\nLoading files...\n");
    sleep(1);
    system("cls");
-}*/
+}
 
 //function for user login
 void userlogin(void)
