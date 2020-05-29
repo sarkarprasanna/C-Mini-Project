@@ -164,7 +164,7 @@ void car(char arr[])
 	int price[9]={15,17,12,13,16,14,14,19,20};
 	    printf("                        MODEL             RATE(per Km)  \n");
 	    printf("\n                ======================================\n");
-	for(i=0;i<9;i++)
+    for(i=0;i<9;i++)
     {
         printf("               %d.         %s         %d\n",i+1,cars[i],price[i]);
     }
@@ -197,7 +197,7 @@ void car(char arr[])
 
 void function(char arr[],int a)
 {
-	int b,k;
+		int b,k;
 	char c;
    	system("cls");
     printf("You have selected %s as your car which has a price (per Km) of %d\n\n\n",arr,a);
@@ -245,13 +245,13 @@ void function(char arr[],int a)
       }
     int T= total;
 
-    printf("\n\n\n\n\nThe total cost is :::::  %d",1*total);
-    printf("\n\n\n     Do you want a driver(y/n).");
+    printf("\n\n\n\n\nThe total cost is :::::  %d",1.2*total);
+    printf("\n\n\nDo you want a driver(y/n).");
     c=getch();
     if(c=='y'||'Y')
     {
-        printf("\n\n\n\nNow the revised cost is :::::  %f",1.20*total);
-        printf("\n\n\nCongratulations You have booked your car");
+        printf("\n\n\n\nNow the revised cost is :::::%f",1.25*a*b);
+        printf("\n\n\nYou have booked your car");
         printf("\n\n\n\nNow you can pay your bill by visiting this url 'www.apni car/bill payment'");
     }
     if(c=='n'||c=='N'){
@@ -383,8 +383,9 @@ void profile(char arr[])
 //driver function
 int main()
 {
-  	welcome();    
-  	
-    system("cls");
+  	welcome();
+  	printf("Press any key to continue...");
+  	getch();
+  	system("cls");
   	userlogin();
 }
